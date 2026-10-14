@@ -2,8 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: lab-app
+labels:
+  app:lab-app
+  version: v2.310
 spec:
   replicas: 3
+  strategy:
+    type : RollingUpdate
+    RollingUpdate
   selector:
     matchLabels:
       app: lab-app
